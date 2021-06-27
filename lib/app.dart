@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  int _selectedIndex = 0;
+
   final data = [
     {'url': 'assets/images/iphone121.jpg', 'name': 'Iphone 12'},
     {'url': 'assets/images/gamingPC.jpg', 'name': 'Gaming PC'}
@@ -22,6 +28,7 @@ class App extends StatelessWidget {
       'name2': 'Gaming PC'
     }
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +44,47 @@ class App extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: BottomAppBar(
+          child: Padding(
+        padding: const EdgeInsets.only(left: 25, right: 25),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              child: Row(
+                children: [
+                  IconButton(
+                      icon: Icon(Icons.home, color: Colors.purple),
+                      onPressed: () {}),
+                  SizedBox(width: 25),
+                  IconButton(
+                      icon: Icon(Icons.favorite, color: Colors.grey),
+                      onPressed: () {}),
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                children: [
+                  IconButton(
+                      icon: Icon(Icons.add_shopping_cart, color: Colors.grey),
+                      onPressed: () {}),
+                  SizedBox(width: 25),
+                  IconButton(
+                      icon: Icon(Icons.person, color: Colors.grey),
+                      onPressed: () {}),
+                ],
+              ),
+            ),
+          ],
+        ),
+      )),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.search),
+        onPressed: () {},
+        backgroundColor: Colors.purple,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SingleChildScrollView(
         child: Column(
           children: [
